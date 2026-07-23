@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuliaCell - Rekap Harian</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: #f4f7f6; color: #333; line-height: 1.5; }
+        header { background-color: #064e3b; color: #fff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; }
+        header h1 { font-size: 18px; }
+        .btn-back { color: #fff; text-decoration: none; font-size: 13px; background-color: #047857; padding: 6px 12px; border-radius: 6px; font-weight: bold; }
+        .container { max-width: 500px; margin: 0 auto; padding: 15px; }
+        
+        /* Box Rincian Keuangan */
+        .summary-box { background-color: #fff; border-radius: 10px; padding: 15px; border: 1px solid #cbd5e1; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+        .summary-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; color: #475569; }
+        .summary-row.bold { font-weight: bold; color: #1e293b; }
+        .summary-row.minus { color: #dc2626; font-weight: bold; }
+        .summary-row.grand-total { font-size: 16px; font-weight: bold; color: #064e3b; border-top: 2px dashed #cbd5e1; padding-top: 8px; margin-top: 8px; }
+
+        .section-title { font-size: 12px; font-weight: bold; color: #064e3b; margin: 20px 0 8px; border-left: 3px solid #064e3b; padding-left: 6px; text-transform: uppercase; }
+
+        /* Tabel Transaksi */
+        .table-box { background-color: #fff; border-radius: 8px; border: 1px solid #cbd5e1; overflow: hidden; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+        .table-title { background-color: #e2e8f0; padding: 8px 12px; font-size: 12px; font-weight: bold; color: #1e293b; display: flex; justify-content: space-between; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #f1f5f9; }
+        th { background-color: #f8fafc; color: #64748b; font-weight: 600; }
+        td.price { text-align: right; font-weight: bold; color: #064e3b; }
+        td.price.text-red { color: #dc2626; }
+        td.action { text-align: center; width: 35px; }
+        .empty-row { text-align: center; color: #94a3b8; font-style: italic; font-size: 11px; padding: 10px; }
+
+        .btn-del { background-color: #fee2e2; color: #ef4444; border: 1px solid #fca5a5; width: 22px; height: 22px; border-radius: 4px; font-size: 11px; cursor: pointer; line-height: 1; }
+        .btn-clear { display: block; width: 100%; background-color: #ef4444; color: #fff; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 13px; margin-top: 20px; cursor: pointer; }
+        footer { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 30px; padding-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-back">⬅ Utama</a>
+        <h1>Rekap Harian</h1>
+        <div style="width: 50px;"></div>
+    </header>
+
+    <div class="container">
+        <!-- Rincian Total Keuangan -->
+        <div class="summary-box">
+            <div class="summary-row">
+                <span>📱 Saldo (Pulsa / Kuota Injek)</span>
+                <span id="subtotalSaldo">Rp 0</span>
+            </div>
+            <div class="summary-row">
+                <span>🎫 Voucher & Perdana</span>
+                <span id="subtotalPerdana">Rp 0</span>
+            </div>
+            <div class="summary-row">
+                <span>🏦 Transfer & Tarik Tunai Bank</span>
+                <span id="subtotalBank">Rp 0</span>
+            </div>
+            <div class="summary-row">
+                <span>👛 TopUp & Tarik Tunai E-Wallet</span>
+                <span id="subtotalEwallet">Rp 0</span>
+            </div>
+            <div class="summary-row bold" style="border-top: 1px solid #e2e8f0; padding-top: 6px; margin-top: 6px;">
+                <span>Total Saldo Masuk</span>
+                <span id="totalSaldo">Rp 0</span>
+            </div>
+            <div class="summary-row minus">
+                <span>➖ Minus (Tarik Tunai Total)</span>
+                <span id="subtotalMinus">- Rp 0</span>
+            </div>
+            <div class="summary-row grand-total">
+                <span>Total Akhir</span>
+                <span id="totalSetelahMinus">Rp 0</span>
+            </div>
+        </div>
+
+        <!-- Detail Rincian Item Berdasarkan Tabel Kategori -->
+        <div class="section-title">📋 Detail Transaksi Per Kategori</div>
+
+        <!-- Tabel 1: Saldo Pulsa/Kuota -->
+        <div class="table-box">
+            <div class="table-title">
+                <span>📱 Saldo (Pulsa & Kuota Injek)</span>
+                <span id="countSaldo">0 Item</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jam</th>
+                        <th>Keterangan</th>
+                        <th style="text-align: right;">Nominal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="listSaldo"></tbody>
+            </table>
+        </div>
+
+        <!-- Tabel 2: Perdana & Voucher -->
+        <div class="table-box">
+            <div class="table-title" style="background-color: #fef3c7;">
+                <span>🎫 Voucher Fisik & Perdana</span>
+                <span id="countPerdana">0 Item</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jam</th>
+                        <th>Keterangan</th>
+                        <th style="text-align: right;">Nominal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="listPerdana"></tbody>
+            </table>
+        </div>
+
+        <!-- Tabel 3: Bank (Transfer & Tarik Tunai) -->
+        <div class="table-box">
+            <div class="table-title" style="background-color: #dbeafe;">
+                <span>🏦 Transfer & Tarik Tunai Bank</span>
+                <span id="countBank">0 Item</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jam</th>
+                        <th>Keterangan</th>
+                        <th style="text-align: right;">Nominal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="listBank"></tbody>
+            </table>
+        </div>
+
+        <!-- Tabel 4: E-Wallet (TopUp & Tarik Tunai) -->
+        <div class="table-box">
+            <div class="table-title" style="background-color: #dcfce7;">
+                <span>👛 TopUp & Tarik Tunai E-Wallet</span>
+                <span id="countEwallet">0 Item</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jam</th>
+                        <th>Keterangan</th>
+                        <th style="text-align: right;">Nominal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="listEwallet"></tbody>
+            </table>
+        </div>
+
+        <button class="btn-clear" onclick="hapusRekap()">🗑️ Hapus Semua Rekap Harian</button>
+
+        <footer>
+            &copy; 2026 AuliaCell. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        function tampilkanRekap() {
+            const rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+
+            let subSaldo = 0, subPerdana = 0, subBank = 0, subEwallet = 0, subMinus = 0;
+            let htmlSaldo = "", htmlPerdana = "", htmlBank = "", htmlEwallet = "";
+            let cntSaldo = 0, cntPerdana = 0, cntBank = 0, cntEwallet = 0;
+
+            rekap.forEach((item, index) => {
+                let kat = item.kategori || "saldo";
+                
+                // Cek apakah transaksi tarik tunai
+                const isMinus = kat.includes("tarik") || item.nama.toLowerCase().includes("tarik") || item.nama.toLowerCase().includes("minus");
+
+                const rowHtml = `
+                    <tr>
+                        <td style="color: #64748b; font-size: 11px;">${item.waktu || '-'}</td>
+                        <td><strong>${item.nama}</strong></td>
+                        <td class="price ${isMinus ? 'text-red' : ''}">${isMinus ? '- ' : ''}Rp ${item.harga.toLocaleString('id-ID')}</td>
+                        <td class="action">
+                            <button class="btn-del" onclick="hapusSatuItem(${index})" title="Hapus">✕</button>
+                        </td>
+                    </tr>
+                `;
+
+                if (kat === "perdana" || item.nama.toLowerCase().includes("voucher") || item.nama.toLowerCase().includes("perdana")) {
+                    subPerdana += item.harga;
+                    htmlPerdana += rowHtml;
+                    cntPerdana++;
+                } else if (kat.startsWith("bank") || item.nama.toLowerCase().includes("bank") || item.nama.toLowerCase().includes("transfer")) {
+                    if (isMinus) subMinus += item.harga;
+                    else subBank += item.harga;
+                    htmlBank += rowHtml;
+                    cntBank++;
+                } else if (kat.startsWith("ewallet") || item.nama.toLowerCase().includes("dana") || item.nama.toLowerCase().includes("gopay") || item.nama.toLowerCase().includes("ovo") || item.nama.toLowerCase().includes("topup")) {
+                    if (isMinus) subMinus += item.harga;
+                    else subEwallet += item.harga;
+                    htmlEwallet += rowHtml;
+                    cntEwallet++;
+                } else {
+                    subSaldo += item.harga;
+                    htmlSaldo += rowHtml;
+                    cntSaldo++;
+                }
+            });
+
+            const emptyText = `<tr><td colspan="4" class="empty-row">Tidak ada transaksi</td></tr>`;
+            
+            document.getElementById("listSaldo").innerHTML = htmlSaldo || emptyText;
+            document.getElementById("listPerdana").innerHTML = htmlPerdana || emptyText;
+            document.getElementById("listBank").innerHTML = htmlBank || emptyText;
+            document.getElementById("listEwallet").innerHTML = htmlEwallet || emptyText;
+
+            document.getElementById("countSaldo").textContent = cntSaldo + " Item";
+            document.getElementById("countPerdana").textContent = cntPerdana + " Item";
+            document.getElementById("countBank").textContent = cntBank + " Item";
+            document.getElementById("countEwallet").textContent = cntEwallet + " Item";
+
+            updateSummary(subSaldo, subPerdana, subBank, subEwallet, subMinus);
+        }
+
+        function updateSummary(saldo, perdana, bank, ewallet, minus) {
+            const totalSaldo = saldo + perdana + bank + ewallet;
+            const totalAkhir = totalSaldo - minus;
+
+            document.getElementById("subtotalSaldo").textContent = "Rp " + saldo.toLocaleString('id-ID');
+            document.getElementById("subtotalPerdana").textContent = "Rp " + perdana.toLocaleString('id-ID');
+            document.getElementById("subtotalBank").textContent = "Rp " + bank.toLocaleString('id-ID');
+            document.getElementById("subtotalEwallet").textContent = "Rp " + ewallet.toLocaleString('id-ID');
+            document.getElementById("totalSaldo").textContent = "Rp " + totalSaldo.toLocaleString('id-ID');
+            document.getElementById("subtotalMinus").textContent = "- Rp " + minus.toLocaleString('id-ID');
+            document.getElementById("totalSetelahMinus").textContent = "Rp " + totalAkhir.toLocaleString('id-ID');
+        }
+
+        function hapusSatuItem(index) {
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            if (confirm(`Hapus "${rekap[index].nama}" dari rekap?`)) {
+                rekap.splice(index, 1);
+                localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+                tampilkanRekap();
+            }
+        }
+
+        function hapusRekap() {
+            if (confirm("Yakin ingin menghapus semua rekap hari ini?")) {
+                localStorage.removeItem("rekapAuliaCell");
+                tampilkanRekap();
+            }
+        }
+
+        tampilkanRekap();
+    </script>
+</body>
+</html>

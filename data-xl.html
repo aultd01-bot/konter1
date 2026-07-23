@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuliaCell - Paket Data XL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header {
+            background-color: #064e3b;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn-back {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            background-color: #047857;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .sub-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #064e3b;
+            margin: 15px 0 8px;
+            border-bottom: 2px solid #064e3b;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Card / List Item */
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-info h3 {
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .card-info p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .card-action {
+            text-align: right;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #064e3b;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .btn-order {
+            display: inline-block;
+            background-color: #064e3b;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Tombol Navigasi -->
+    <header>
+        <a href="index.html" class="btn-back">⬅ Kembali</a>
+        <h1>Paket Data XL</h1>
+        <a href="rekap.html" class="btn-back">📋 Rekap</a>
+    </header>
+
+    <div class="container">
+
+        <!-- KATEGORI HARIAN -->
+        <div class="sub-title">📌 XL HARIAN</div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>3.5 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 17.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 3.5GB (5Hari)', 17000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>5.5 GB</h3>
+                <p>Masa Aktif: 3 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 18.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 5.5GB (3Hari)', 18000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>5 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 20.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 5GB (5Hari)', 20000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>4 GB</h3>
+                <p>Masa Aktif: 10 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 22.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 4GB (10Hari)', 22000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>4 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 21.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 4GB (7Hari)', 21000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>7 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 22.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 7GB (5Hari)', 22000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>7 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 26.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 7GB (7Hari)', 26000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>5 GB</h3>
+                <p>Masa Aktif: 10 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 27.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 5GB (10Hari)', 27000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>10 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 32.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 10GB (7Hari)', 32000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>18 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 38.000</div>
+                <button class="btn-order" onclick="beli('Data XL Harian 18GB (7Hari)', 38000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+
+        <!-- KATEGORI BULANAN FLEX -->
+        <div class="sub-title">📌 XL BULANAN FLEX</div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>7 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 38.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex 7GB (28Hari)', 38000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>16 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 52.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex 16GB (28Hari)', 52000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>23 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 63.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex 23GB (28Hari)', 63000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>31 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 72.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex 31GB (28Hari)', 72000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>40 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 81.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex 40GB (28Hari)', 81000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>10 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 43.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex 10GB (28Hari)', 43000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+
+        <!-- KATEGORI BULANAN FLEX MAX -->
+        <div class="sub-title">📌 XL BULANAN FLEX MAX</div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>50 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 94.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex Max 50GB (28Hari)', 94000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>65 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 105.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex Max 65GB (28Hari)', 105000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>100 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 130.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex Max 100GB (28Hari)', 130000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>150 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 154.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex Max 150GB (28Hari)', 154000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>250 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 204.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex Max 250GB (28Hari)', 204000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>500 GB</h3>
+                <p>Masa Aktif: 28 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 304.000</div>
+                <button class="btn-order" onclick="beli('Data XL Bulanan Flex Max 500GB (28Hari)', 304000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 AuliaCell. All Rights Reserved.
+        </footer>
+
+    </div>
+
+    <!-- Script Simpan ke Rekap & Auto Redirect -->
+    <script>
+        function beli(namaProduk, harga, kategori = 'saldo') {
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            
+            const skrg = new Date();
+            const jam = skrg.getHours().toString().padStart(2, '0') + ':' + skrg.getMinutes().toString().padStart(2, '0');
+
+            rekap.push({
+                nama: namaProduk,
+                harga: harga,
+                kategori: kategori,
+                waktu: jam
+            });
+
+            localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+            window.location.href = "rekap.html";
+        }
+    </script>
+</body>
+</html>

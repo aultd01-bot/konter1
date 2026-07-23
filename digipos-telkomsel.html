@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuliaCell - Telkomsel DigiPOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header {
+            background-color: #064e3b;
+            color: #fff;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-back {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #047857;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .header-title h1 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header-title p {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Badge Provider */
+        .provider-badge {
+            background-color: #e11d48;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Card List Paket */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-item {
+            background-color: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            border-left: 5px solid #e11d48;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .card-detail {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .card-price {
+            font-size: 15px;
+            font-weight: bold;
+            color: #064e3b;
+        }
+
+        .btn-pilih {
+            background-color: #064e3b;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+
+        .btn-pilih:active {
+            background-color: #047857;
+        }
+
+        .tag-super {
+            font-size: 10px;
+            background-color: #ffe4e6;
+            color: #e11d48;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            width: fit-content;
+            margin-top: 4px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="btn-back">⬅ Kembali</a>
+        <div class="header-title" style="text-align: right;">
+            <h1>Telkomsel DigiPOS</h1>
+            <p>Paket Data / Super Seru</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="provider-badge">🔴 Telkomsel DigiPOS / Inject</div>
+        <div class="subtitle">Pilih Paket Data untuk Pelanggan:</div>
+
+        <div class="card-list">
+
+            <!-- 4 GB - 14 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">4 GB</div>
+                    <div class="card-detail">Masa Aktif: 14 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 23.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 4 GB (14H)', 23000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 8 GB - 14 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">8 GB</div>
+                    <div class="card-detail">Masa Aktif: 14 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 26.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 8 GB (14H)', 26000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 7 GB - 28 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">7 GB</div>
+                    <div class="card-detail">Masa Aktif: 28 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 37.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 7 GB (28H)', 37000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 10 GB - 28 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">10 GB</div>
+                    <div class="card-detail">Masa Aktif: 28 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 45.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 10 GB (28H)', 45000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 16 GB - 28 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">16 GB</div>
+                    <div class="card-detail">Masa Aktif: 28 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 52.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 16 GB (28H)', 52000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 25 GB - 28 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">25 GB</div>
+                    <div class="card-detail">Masa Aktif: 28 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 70.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 25 GB (28H)', 70000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 40 GB - 28 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">40 GB</div>
+                    <div class="card-detail">Masa Aktif: 28 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 80.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 40 GB (28H)', 80000)">+ Simpan</button>
+                </div>
+            </div>
+
+            <!-- 60 GB - 28 Hari -->
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-title">60 GB</div>
+                    <div class="card-detail">Masa Aktif: 28 Hari</div>
+                    <div class="tag-super">SUPER SERU</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-price">Rp 100.000</div>
+                    <button class="btn-pilih" onclick="simpanKeRekap('Data Telkomsel DigiPOS 60 GB (28H)', 100000)">+ Simpan</button>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            &copy; 2026 AuliaCell. All Rights Reserved.
+        </footer>
+    </div>
+
+    <!-- Script Simpan ke Rekap -->
+    <script>
+        function simpanKeRekap(namaBarang, hargaBarang) {
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            
+            const skrg = new Date();
+            const jam = skrg.getHours().toString().padStart(2, '0') + ':' + skrg.getMinutes().toString().padStart(2, '0');
+
+            rekap.push({
+                nama: namaBarang,
+                harga: hargaBarang,
+                kategori: "saldo", // Masuk ke transaksi elektrik / saldo
+                waktu: jam
+            });
+
+            localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+            
+            // Langsung arahkan ke halaman rekap
+            window.location.href = "rekap.html";
+        }
+    </script>
+</body>
+</html>

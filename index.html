@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuliaCell - Utama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header {
+            background-color: #064e3b;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-title h1 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header-title p {
+            font-size: 11px;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+
+        .btn-rekap-header {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            background-color: #047857;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #064e3b;
+            margin: 20px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-left: 4px solid #064e3b;
+            padding-left: 8px;
+        }
+
+        /* Menu Grid Operator */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .btn-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 20px 10px;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            transition: transform 0.1s, background-color 0.1s;
+        }
+
+        .btn-menu:active {
+            transform: scale(0.98);
+            background-color: #e2e8f0;
+        }
+
+        .btn-menu span {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        /* Styling Variasi Khusus Paket Data */
+        .btn-menu.data-item {
+            border-left: 3px solid #047857;
+        }
+
+        /* Form Box Input */
+        .form-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            color: #475569;
+            margin-bottom: 4px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #064e3b;
+        }
+
+        .btn-simpan {
+            width: 100%;
+            background-color: #064e3b;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-simpan:active {
+            background-color: #047857;
+        }
+
+        /* Tombol WA Utama */
+        .btn-wa-main {
+            display: block;
+            background-color: #047857;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-title">
+            <h1>AuliaCell</h1>
+            <p>Pilih Operator atau Input Barang</p>
+        </div>
+        <a href="rekap.html" class="btn-rekap-header">📋 Rekap Penjualan</a>
+    </header>
+
+    <div class="container">
+
+        <!-- Section 1: Katalog Voucher -->
+        <div class="section-title">🎫 Katalog Voucher</div>
+        <div class="menu-grid">
+            <a href="Smartfren.html" class="btn-menu">
+                Smartfren
+                <span>Lihat Voucher</span>
+            </a>
+            <a href="xl.html" class="btn-menu">
+                XL
+                <span>Lihat Voucher</span>
+            </a>
+            <a href="axis.html" class="btn-menu">
+                AXIS
+                <span>Lihat Voucher</span>
+            </a>
+            <a href="indosat.html" class="btn-menu">
+                Indosat
+                <span>Lihat Voucher</span>
+            </a>
+            <a href="telkomsel.html" class="btn-menu">
+                Telkomsel
+                <span>Lihat Voucher</span>
+            </a>
+            <a href="digipos-telkomsel.html" class="btn-menu">
+                Telkomsel DigiPOS
+                <span>Lihat Voucher</span>
+            </a>
+            <a href="tri.html" class="btn-menu">
+                TRI
+                <span>Lihat Voucher</span>
+            </a>
+        </div>
+
+        <!-- Section 2: Katalog Paket Data (Inject/Elektrik) -->
+        <div class="section-title">🌐 Katalog Paket Data</div>
+        <div class="menu-grid">
+            <a href="data-smartfren.html" class="btn-menu data-item">
+                Smartfren
+                <span>Isi Paket Data</span>
+            </a>
+            <a href="data-xl.html" class="btn-menu data-item">
+                XL
+                <span>Isi Paket Data</span>
+            </a>
+            <a href="data-axis.html" class="btn-menu data-item">
+                AXIS
+                <span>Isi Paket Data</span>
+            </a>
+            <a href="data-indosat.html" class="btn-menu data-item">
+                Indosat
+                <span>Isi Paket Data</span>
+            </a>
+            <a href="data-telkomsel.html" class="btn-menu data-item">
+                Telkomsel
+                <span>Isi Paket Data</span>
+            </a>
+            <a href="data-digipos-telkomsel.html" class="btn-menu data-item">
+                Telkomsel DigiPOS
+                <span>Isi Paket Data</span>
+            </a>
+            <a href="data-tri.html" class="btn-menu data-item">
+                TRI
+                <span>Isi Paket Data</span>
+            </a>
+        </div>
+
+        <!-- Section 3: Input Transaksi Pulsa -->
+        <div class="section-title">📲 Input Penjualan Pulsa</div>
+        <div class="form-box">
+            <div class="form-group">
+                <label for="providerPulsa">Provider / Operator</label>
+                <select id="providerPulsa" onchange="hitungHargaPulsaOtomatis()">
+                    <option value="Telkomsel">Telkomsel</option>
+                    <option value="Telkomsel DigiPOS">Telkomsel DigiPOS</option>
+                    <option value="Indosat">Indosat</option>
+                    <option value="XL">XL</option>
+                    <option value="AXIS">AXIS</option>
+                    <option value="Tri">Tri</option>
+                    <option value="Smartfren">Smartfren</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nominalPulsa">Nominal Pulsa (Rp)</label>
+                <input type="number" id="nominalPulsa" placeholder="Contoh: 10000" oninput="hitungHargaPulsaOtomatis()">
+            </div>
+            <div class="form-group">
+                <label for="hargaJualPulsa">Harga Jual / Bayar (Rp) [Otomatis]</label>
+                <input type="number" id="hargaJualPulsa" placeholder="Otomatis terisi...">
+            </div>
+            <button type="button" class="btn-simpan" onclick="simpanPulsa()">+ Simpan Pulsa ke Rekap</button>
+        </div>
+
+        <!-- Section 4: Input E-Wallet & Bank Transfer (Top Up / Tarik Tunai) -->
+        <div class="section-title">💸 Top Up & Tarik Tunai (E-Wallet / Bank)</div>
+        <div class="form-box">
+            <div class="form-group">
+                <label for="jenisEwallet">Jenis Transaksi</label>
+                <select id="jenisEwallet" onchange="hitungEwalletOtomatis()">
+                    <option value="Top Up">Top Up / Isi Saldo</option>
+                    <option value="Tarik Tunai">Tarik Tunai</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="namaEwallet">Pilih E-Wallet / Bank</label>
+                <select id="namaEwallet">
+                    <option value="DANA">DANA</option>
+                    <option value="OVO">OVO</option>
+                    <option value="GoPay">GoPay</option>
+                    <option value="ShopeePay">ShopeePay</option>
+                    <option value="LinkAja">LinkAja</option>
+                    <option value="Transfer Bank">Transfer Bank</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nominalEwallet">Nominal Transaksi (Rp)</label>
+                <input type="number" id="nominalEwallet" placeholder="Contoh: 50000" oninput="hitungEwalletOtomatis()">
+            </div>
+            <div class="form-group">
+                <label for="biayaAdminEwallet">Biaya Admin (Rp)</label>
+                <input type="number" id="biayaAdminEwallet" placeholder="Contoh: 3000" oninput="hitungTotalEwallet()">
+            </div>
+            <div class="form-group">
+                <label for="totalBayarEwallet">Total Jual / Bayar (Rp) [Otomatis]</label>
+                <input type="number" id="totalBayarEwallet" placeholder="Otomatis terisi..." readonly style="background-color: #f1f5f9;">
+            </div>
+            <button type="button" class="btn-simpan" onclick="simpanEwallet()">+ Simpan E-Wallet ke Rekap</button>
+        </div>
+
+        <!-- Section 5: Input Aksesoris / Lain-Lain -->
+        <div class="section-title">🎧 Input Aksesoris & Lain-Lain</div>
+        <div class="form-box">
+            <div class="form-group">
+                <label for="namaBarang">Nama Aksesoris / Barang</label>
+                <input type="text" id="namaBarang" placeholder="Contoh: Softcase / Headset / Kabel Type-C">
+            </div>
+            <div class="form-group">
+                <label for="hargaBarang">Harga (Rp)</label>
+                <input type="number" id="hargaBarang" placeholder="Contoh: 15000">
+            </div>
+            <button type="button" class="btn-simpan" onclick="simpanAksesoris()">+ Simpan Aksesoris ke Rekap</button>
+        </div>
+
+        <!-- Tombol Kontak WA -->
+        <a href="https://wa.me/6288219949327" class="btn-wa-main">
+            💬 Tanya Stok / Pesan via WhatsApp
+        </a>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 AuliaCell. All Rights Reserved.
+        </footer>
+
+    </div>
+
+    <!-- Script Simpan Transaksi & Kalkulasi Otomatis -->
+    <script>
+        // Function Hitung Harga Pulsa Otomatis
+        function hitungHargaPulsaOtomatis() {
+            const provider = document.getElementById("providerPulsa").value;
+            const nominalVal = document.getElementById("nominalPulsa").value.trim();
+            const hargaInput = document.getElementById("hargaJualPulsa");
+
+            if (!nominalVal || isNaN(nominalVal) || parseInt(nominalVal) <= 0) {
+                hargaInput.value = "";
+                return;
+            }
+
+            const nominal = parseInt(nominalVal);
+            
+            if (provider === "Tri" || provider === "Indosat") {
+                hargaInput.value = nominal + 3000;
+            } else {
+                hargaInput.value = nominal + 2000;
+            }
+        }
+
+        // Function Standar Biaya Admin E-Wallet
+        function hitungEwalletOtomatis() {
+            const jenis = document.getElementById("jenisEwallet").value;
+            const nominalVal = document.getElementById("nominalEwallet").value.trim();
+            const adminInput = document.getElementById("biayaAdminEwallet");
+
+            if (!nominalVal || isNaN(nominalVal) || parseInt(nominalVal) <= 0) {
+                adminInput.value = "";
+                hitungTotalEwallet();
+                return;
+            }
+
+            const nominal = parseInt(nominalVal);
+
+            if (jenis === "Top Up") {
+                adminInput.value = 3000;
+            } else {
+                if (nominal <= 100000) {
+                    adminInput.value = 3000;
+                } else {
+                    adminInput.value = Math.ceil(nominal / 100000) * 3000;
+                }
+            }
+
+            hitungTotalEwallet();
+        }
+
+        // Function Hitung Total Bayar E-Wallet (Nominal + Admin)
+        function hitungTotalEwallet() {
+            const nominal = parseInt(document.getElementById("nominalEwallet").value) || 0;
+            const admin = parseInt(document.getElementById("biayaAdminEwallet").value) || 0;
+            const totalInput = document.getElementById("totalBayarEwallet");
+
+            if (nominal > 0) {
+                totalInput.value = nominal + admin;
+            } else {
+                totalInput.value = "";
+            }
+        }
+
+        // Function Simpan Pulsa (Masuk ke Kategori SALDO)
+        function simpanPulsa() {
+            const provider = document.getElementById("providerPulsa").value;
+            const nominal = document.getElementById("nominalPulsa").value.trim();
+            const hargaJual = parseInt(document.getElementById("hargaJualPulsa").value.trim());
+
+            if (!nominal || isNaN(hargaJual)) {
+                alert("Silakan isi nominal pulsa dengan benar!");
+                return;
+            }
+
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            
+            const skrg = new Date();
+            const jam = skrg.getHours().toString().padStart(2, '0') + ':' + skrg.getMinutes().toString().padStart(2, '0');
+
+            rekap.push({
+                nama: "Pulsa " + provider + " " + parseInt(nominal).toLocaleString('id-ID'),
+                harga: hargaJual,
+                kategori: "saldo",
+                waktu: jam
+            });
+
+            localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+            window.location.href = "rekap.html";
+        }
+
+        // Function Simpan E-Wallet / Bank Transfer (Masuk ke Kategori SALDO)
+        function simpanEwallet() {
+            const jenis = document.getElementById("jenisEwallet").value;
+            const provider = document.getElementById("namaEwallet").value;
+            const nominal = document.getElementById("nominalEwallet").value.trim();
+            const totalBayar = parseInt(document.getElementById("totalBayarEwallet").value.trim());
+
+            if (!nominal || isNaN(totalBayar)) {
+                alert("Silakan isi nominal transaksi dengan benar!");
+                return;
+            }
+
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            
+            const skrg = new Date();
+            const jam = skrg.getHours().toString().padStart(2, '0') + ':' + skrg.getMinutes().toString().padStart(2, '0');
+
+            rekap.push({
+                nama: jenis + " " + provider + " " + parseInt(nominal).toLocaleString('id-ID'),
+                harga: totalBayar,
+                kategori: "saldo",
+                waktu: jam
+            });
+
+            localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+            window.location.href = "rekap.html";
+        }
+
+        // Function Simpan Aksesoris (Masuk ke Kategori PERDANA/Fisik)
+        function simpanAksesoris() {
+            const nama = document.getElementById("namaBarang").value.trim();
+            const harga = parseInt(document.getElementById("hargaBarang").value.trim());
+
+            if (!nama || isNaN(harga)) {
+                alert("Silakan isi nama barang dan harga dengan benar!");
+                return;
+            }
+
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            
+            const skrg = new Date();
+            const jam = skrg.getHours().toString().padStart(2, '0') + ':' + skrg.getMinutes().toString().padStart(2, '0');
+
+            rekap.push({
+                nama: "Aksesoris - " + nama,
+                harga: harga,
+                kategori: "perdana",
+                waktu: jam
+            });
+
+            localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+            window.location.href = "rekap.html";
+        }
+    </script>
+</body>
+</html>

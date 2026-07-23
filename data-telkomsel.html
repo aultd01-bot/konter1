@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuliaCell - Paket Data Telkomsel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header {
+            background-color: #064e3b;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn-back {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            background-color: #047857;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .sub-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #064e3b;
+            margin: 15px 0 8px;
+            border-bottom: 2px solid #064e3b;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Card / List Item */
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-info h3 {
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .card-info p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .card-action {
+            text-align: right;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #064e3b;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .btn-order {
+            display: inline-block;
+            background-color: #064e3b;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Tombol Navigasi -->
+    <header>
+        <a href="index.html" class="btn-back">⬅ Kembali</a>
+        <h1>Paket Telkomsel</h1>
+        <a href="rekap.html" class="btn-back">📋 Rekap</a>
+    </header>
+
+    <div class="container">
+
+        <!-- KATEGORI HARIAN -->
+        <div class="sub-title">📌 TELKOMSEL HARIAN</div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>4 GB</h3>
+                <p>Masa Aktif: 1 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 11.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 4GB (1Hari)', 11000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>5 GB</h3>
+                <p>Masa Aktif: 1 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 12.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 5GB (1Hari)', 12000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>2 GB</h3>
+                <p>Masa Aktif: 3 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 14.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 2GB (3Hari)', 14000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>2.5 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 15.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 2.5GB (5Hari)', 15000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>6 GB</h3>
+                <p>Masa Aktif: 2 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 14.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 6GB (2Hari)', 14000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>3 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 16.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 3GB (5Hari)', 16000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>5 GB</h3>
+                <p>Masa Aktif: 3 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 16.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 5GB (3Hari)', 16000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>7 GB</h3>
+                <p>Masa Aktif: 2 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 16.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 7GB (2Hari)', 16000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>6 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 19.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 6GB (5Hari)', 19000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>9 GB</h3>
+                <p>Masa Aktif: 3 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 21.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 9GB (3Hari)', 21000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>5 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 23.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 5GB (7Hari)', 23000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>7 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 25.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 7GB (5Hari)', 25000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>9 GB</h3>
+                <p>Masa Aktif: 5 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 27.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 9GB (5Hari)', 27000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>7 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 30.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 7GB (7Hari)', 30000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>9 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 32.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 9GB (7Hari)', 32000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>10 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 38.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 10GB (7Hari)', 38000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>12 GB</h3>
+                <p>Masa Aktif: 7 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 45.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Harian 12GB (7Hari)', 45000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+
+        <!-- KATEGORI BULANAN -->
+        <div class="sub-title">📌 TELKOMSEL BULANAN</div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>3 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 27.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 3GB (30Hari)', 27000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>4 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 33.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 4GB (30Hari)', 33000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>6 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 40.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 6GB (30Hari)', 40000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>9 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 53.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 9GB (30Hari)', 53000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>10 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 55.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 10GB (30Hari)', 55000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>15 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 72.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 15GB (30Hari)', 72000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>18 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 83.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 18GB (30Hari)', 83000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>25 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 96.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 25GB (30Hari)', 96000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>30 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 106.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 30GB (30Hari)', 106000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>50 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 158.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 50GB (30Hari)', 158000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>75 GB</h3>
+                <p>Masa Aktif: 30 Hari</p>
+            </div>
+            <div class="card-action">
+                <div class="price">Rp 190.000</div>
+                <button class="btn-order" onclick="beli('Data Telkomsel Bulanan 75GB (30Hari)', 19000, 'saldo')">Beli</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 AuliaCell. All Rights Reserved.
+        </footer>
+
+    </div>
+
+    <!-- Script Simpan ke Rekap & Auto Redirect -->
+    <script>
+        function beli(namaProduk, harga, kategori = 'saldo') {
+            let rekap = JSON.parse(localStorage.getItem("rekapAuliaCell")) || [];
+            
+            const skrg = new Date();
+            const jam = skrg.getHours().toString().padStart(2, '0') + ':' + skrg.getMinutes().toString().padStart(2, '0');
+
+            rekap.push({
+                nama: namaProduk,
+                harga: harga,
+                kategori: kategori,
+                waktu: jam
+            });
+
+            localStorage.setItem("rekapAuliaCell", JSON.stringify(rekap));
+            window.location.href = "rekap.html";
+        }
+    </script>
+</body>
+</html>
